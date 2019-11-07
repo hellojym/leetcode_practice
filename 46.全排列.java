@@ -12,47 +12,41 @@ import java.util.List;
 
 // @lc code=start
 class Solution {
-    List<List<Integer>> res = new ArrayList();
+    List<List<Integer>> res = new ArrayList<List<Integer>>();
 
     public List<List<Integer>> permute(int[] nums) {
 
-        List<Integer> array = new ArrayList();
+        List<Integer> array = new ArrayList<Integer>();
         for (int num : nums) {
             array.add(num);
         }
-        for (int i = 0; i < array.size(); i++) {
-            //可以从这里理解递归函数的意义
-            backTrace(array, new ArrayList(), i);
-        }
+        backTrace(array, new ArrayList<Integer>());
         return res;
     }
 
     /**
-     * 递归函数,表示的含义：以index开头，剩下的进行排序。
-     * @param current 当前列表中的所有数据
-     * @param onePath 其中一条路径,保存该路径上所有的数据。
-     * @param index 谁当开头元素
+     * 要明确递归函数的含义：对current数组进行遍历
+     * 递归的要义就在于：子问题和母问题结构相同，
+     * 母问题在假设子问题已知的情况下，如何求解母问题
+     * @param current
+     * @param onePath 从全局来看，是所有解中的一条路径，对本函数来说，
+     * 就是递归的上层传下来的路径
      */
-    private void backTrace(List<Integer> current, List<Integer> onePath, int index) {
-
-        // 递归终止条件
-        if (current.size() == 1) {
-            onePath.add(current.get(0));
+    private void backTrace(List<Integer> current, List<Integer> onePath) {
+        if (current.size() == 0) {
             res.add(onePath);
             return;
         }
-        // 将当前值保存到onePath列表中
-        onePath.add(current.get(index));
-        // 将当前值删掉
-        int value = current.remove(index);
-        // 从剩下的列表中继续递归
+    
+        //求全排列的思路是：依次取当前数组的单个元素作为开头,对剩下的元素进行遍历。
         for (int i = 0; i < current.size(); i++) {
-            List<Integer> list = new ArrayList();
-            list.addAll(onePath);
-            backTrace(current, list, i);
+            List<Integer> newPath = new ArrayList<>(onePath);
+            newPath.add(current.get(i));
+            int value = current.remove(i);
+            backTrace(current, newPath);
+            current.add(i, value);
         }
-        current.add(index, value);
-
     }
+
 }
 // @lc code=end
