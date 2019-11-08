@@ -8,6 +8,11 @@
 /**
  * Definition for singly-linked list. public class ListNode { int val; ListNode
  * next; ListNode(int x) { val = x; } }
+ * 
+ * 其实这个题也不难，麻烦在特殊情况的考虑
+ * 1.只有一个节点或空
+ * 2.m = n时，返回原始链表
+ * 3.m等于1 和 m不等于1两种，对于头节点和最后返回都要区分对待。
  */
 class Solution {
     public ListNode reverseBetween(ListNode head, int m, int n) {

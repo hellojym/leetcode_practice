@@ -1,5 +1,8 @@
-
 class Main {
+
+    public static void main(String[] args) {
+        System.out.println("-------------main begin---------------");
+    }
 
     public static void printArray(int[] nums) {
         for (int i : nums) {
@@ -28,9 +31,5 @@ class Main {
             pre = node;
         }
         return head;
-    }
-
-    public static void main(String[] args) {
-
     }
 }
