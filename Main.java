@@ -1,12 +1,18 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class Main {
 
     public static void main(String[] args) {
         System.out.println("-------------main begin---------------");
-        int[] array = new int[] { 2, 4, 3, 6, 9, 10, 7 };
-        Heapsort sHeapsort = new Heapsort();
-        printArray(sHeapsort.heapSort(array));
+
+        Solution3 s = new Solution3();
+        s.checkInclusion("adc", "dcda");
         System.out.println("--------------main end----------------");
+ 
     }
+
 
     public static void printArray(int[] nums) {
         for (int i : nums) {
