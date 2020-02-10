@@ -8,11 +8,11 @@ class Main {
         System.out.println("-------------main begin---------------");
 
         Solution3 s = new Solution3();
-        s.checkInclusion("adc", "dcda");
+        int[][] g = new int[][]{{0,1},{1,1}};
+        int result = s.maxAreaOfIsland(g);
         System.out.println("--------------main end----------------");
- 
-    }
 
+    }
 
     public static void printArray(int[] nums) {
         for (int i : nums) {
