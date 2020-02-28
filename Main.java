@@ -6,10 +6,12 @@ class Main {
 
     public static void main(String[] args) {
         System.out.println("-------------main begin---------------");
-
-        Solution3 s = new Solution3();
-        int[][] g = new int[][]{{0,1},{1,1}};
-        int result = s.maxAreaOfIsland(g);
+        System.out.println("-----------------------");
+        int array[] = { 4, 3, 1, 6, 6, 8, 7 };
+        new QuickSort().quickSort(array);
+        for (int i : array) {
+            System.out.println(i);
+        }
         System.out.println("--------------main end----------------");
 
     }
